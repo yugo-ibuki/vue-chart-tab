@@ -3,9 +3,9 @@ export const data = {
     1: {
       labels: ['January', 'February', 'March', 'April', 'May', 'June'],
       datasets: {
-          label: 'Sample Data1',
-          data: [10, 20, 30, 40, 50, 30]
-       }
+        label: 'Sample Data1',
+        data: [10, 20, 30, 40, 50, 30]
+      }
     },
     2: {
       labels: ['January', 'February', 'March', 'April', 'May', 'June'],
@@ -24,8 +24,9 @@ export const data = {
   }
 }
 
-export type TData = {
-  chartData: TChartData;
+type TDataItem = {
+  labels: string[];
+  datasets: any;
 }
 
 export type TChartData = {
@@ -34,7 +35,6 @@ export type TChartData = {
   3: TDataItem;
 }
 
-type TDataItem = {
-  labels: string[];
-  datasets: object;
+export type TData = {
+  chartData: TChartData;
 }

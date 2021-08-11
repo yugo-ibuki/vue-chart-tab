@@ -5,16 +5,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref, watch, computed, reactive } from 'vue'
+import { defineComponent, onMounted, ref, watch, computed } from 'vue'
 import { Chart } from 'chart.js'
 import { options } from '@/config/config'
-import { TChartData } from '@/data/data'
 
 export default defineComponent({
   name: 'chart',
   props: {
     chartData: {
-      type: TChartData,
+      type: Object,
       required: true
     },
     chartType: {
@@ -48,7 +47,7 @@ export default defineComponent({
     function getSelectedData () {
       const dataArray = Object.entries(data.dataSets)
       const newData = Object.entries(dataArray[0][1])
-      const selectedArray = []
+      const selectedArray = [] as any[]
       newData.map(item => {
         if (chartType.value === Number(item[0])) {
           selectedArray.push(item[1])
@@ -57,7 +56,7 @@ export default defineComponent({
       return selectedArray
     }
 
-    const obj = {}
+    const obj = {} as any
 
     function createCharts () {
       const data = getSelectedData()[0]
