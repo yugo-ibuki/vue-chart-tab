@@ -51,7 +51,7 @@ export default defineComponent({
         active: false
       }
     })
-    const tabsArray: Array = Object.entries(tabs)
+    const tabsArray = Object.entries(tabs)
 
     onMounted(() => {
       // 最初のactiveを1つ目のタブに設定
